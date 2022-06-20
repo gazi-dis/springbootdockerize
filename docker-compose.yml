@@ -1,0 +1,17 @@
+version: '2.4'
+
+services:
+  dockerize:
+    image: dockerize:0.0.3
+    ports:
+      - "8081:8080"
+    environment:
+      DB_URL: "jdbc:h2:tcp://h2db/dockerize-db;DB_CLOSE_DELAY=-1"
+      DB_USERNAME: "sa"
+      DB_PASSWORD: ""
+
+
+  h2db:
+    image: buildo/h2database
+    ports:
+      - "9092:8082"
